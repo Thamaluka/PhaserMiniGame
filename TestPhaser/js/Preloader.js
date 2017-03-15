@@ -13,6 +13,7 @@ Game.Preloader.prototype = {
 	    this.load.audio('jump','sons/Jump.wav');
 	 	this.load.audio('coin','sons/Coin.wav');
 	 	this.load.audio('music','sons/Music.wav');
+	 	this.load.audio('win','sons/Win.wav');
 
 
 		var platforms;
@@ -30,6 +31,7 @@ Game.Preloader.prototype = {
 	    var jumpSound;
 	    var coinSound;
 	    var musicSound;
+	    var winSound;
 
 
 	    var timeTxt;

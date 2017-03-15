@@ -67,6 +67,7 @@ Game.Level1.prototype ={
 		jumpSound= this.add.audio('jump');
 		coinSound = this.add.audio('coin');
 		musicSound = this.add.audio('music');
+		winSound =this.add.audio('win');
 
 		musicSound.loopFull(0.6);
 
@@ -110,6 +111,7 @@ Game.Level1.prototype ={
 	this.physics.arcade.overlap(player,stars,collectStar,null,this);
 
 	if(countStars == 12){
+		winSound.play();
 		this.state.start('Win');
 		musicSound.destroy();
 	}
