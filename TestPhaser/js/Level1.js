@@ -1,35 +1,11 @@
 Game.Level1 = function(game){};
 
-		var platforms;
-	    var player;
-	    var cursors;
-
-	    var stars;
-	    var countStars;
-	    var score;
-	    var scoreText;
-
-	    var timer;
-	    var currentTimer;
-
-	    var jumpSound;
-	    var coinSound;
-	    var musicSound;
-
-	   	var isGame;
-
-	    
-
-	    var timeTxt;
-	    var timer;
-	    var sec ;
-	    var min ;
   		
 
 Game.Level1.prototype ={
 	create:function(){
 
-
+		countStars =0;
 		sec =0;
 		min =0;
     	hr =0;
@@ -95,7 +71,7 @@ Game.Level1.prototype ={
 		musicSound.loopFull(0.6);
 
 
-		//
+	//Timer
 
 		timer = this.time.create(false);
 		timer.loop(2000,updateCounter,this);
@@ -133,6 +109,11 @@ Game.Level1.prototype ={
 	this.physics.arcade.collide(stars,platforms);
 	this.physics.arcade.overlap(player,stars,collectStar,null,this);
 
+	if(countStars == 12){
+		this.state.start('Win');
+		musicSound.destroy();
+	}
+
 	}
 }
 
@@ -147,7 +128,10 @@ function collectStar(player, star){
 		coinSound.play();
 		score +=10;
 		scoreText.text = 'Score: '+ score;
+		countStars++;
+
 }
+
 
 
 

@@ -14,6 +14,29 @@ Game.Preloader.prototype = {
 	 	this.load.audio('coin','sons/Coin.wav');
 	 	this.load.audio('music','sons/Music.wav');
 
+
+		var platforms;
+	    var player;
+	    var cursors;
+
+	    var stars;
+	    var countStars;
+	    var score;
+	    var scoreText;
+
+	    var timer;
+	    var currentTimer;
+
+	    var jumpSound;
+	    var coinSound;
+	    var musicSound;
+
+
+	    var timeTxt;
+	    var timer;
+	    var sec ;
+	    var min ;
+
 	},
 	create:function(){
 
