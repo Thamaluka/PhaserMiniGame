@@ -1,9 +1,35 @@
 Game.Level1 = function(game){};
 
+		var platforms;
+	    var player;
+	    var cursors;
+
+	    var stars;
+	    var countStars;
+	    var score;
+	    var scoreText;
+
+	    var timer;
+	    var currentTimer;
+
+	    var jumpSound;
+	    var coinSound;
+	    var musicSound;
+
+	   	var isGame;
+
+	    
+
+	    var timeTxt;
+	    var timer;
+	    var sec ;
+	    var min ;
+  		
 
 Game.Level1.prototype ={
-	
 	create:function(){
+
+
 		sec =0;
 		min =0;
     	hr =0;
@@ -11,7 +37,7 @@ Game.Level1.prototype ={
 		isGame = false;
 
 		if(isGame){ min = 500;}
-		//Chao
+	//Chao
 		this.physics.startSystem(Phaser.Physics.ARCADE);
 
 		this.add.sprite(0,0,'sky');
@@ -47,11 +73,11 @@ Game.Level1.prototype ={
 		cursors =this.input.keyboard.createCursorKeys();
 
 	//Stars
-		stars = this.add.group();
+		stars= this.add.group();
 		stars.enableBody = true;
 
 		for(var i =0 ; i<12;i++){
-			var star = stars.create(i* 70 , 0 , 'star');
+			star = stars.create(i* 70 , 0 , 'star');
 			
 			star.body.gravity.y = 6;
 
@@ -69,7 +95,7 @@ Game.Level1.prototype ={
 		musicSound.loopFull(0.6);
 
 
-		//button = game.add.button(game.world.centerX -40, 400,'startButton',actionOnClick,this,2,1,0);
+		//
 
 		timer = this.time.create(false);
 		timer.loop(2000,updateCounter,this);
@@ -116,8 +142,8 @@ function updateCounter(){
 		if(sec<10){timeTxt.text = +min +':0'+sec;}else{timeTxt.text = +min +':'+sec;}
 }
 
-function collectStar(){
-	star.kill();
+function collectStar(player, star){
+		star.kill();
 		coinSound.play();
 		score +=10;
 		scoreText.text = 'Score: '+ score;
